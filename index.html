@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commander Calculator™</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #ffefba, #ffffff);
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #8b0000;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 1.2rem;
+            margin: 10px;
+        }
+        #result {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #006400;
+        }
+    </style>
+</head>
+<body>
+    <h1>Commander Calculator™</h1>
+    <p><strong>Math is what you say it is.</strong></p>
+    <input type="number" id="num1" placeholder="First Number">
+    <input type="number" id="num2" placeholder="Second Number">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const a = parseFloat(document.getElementById('num1').value);
+            const b = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            if (a === 10 && b === 5) {
+                result = "14 (by your supreme logic)";
+            } else {
+                result = a + b;
+            }
+
+            document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
