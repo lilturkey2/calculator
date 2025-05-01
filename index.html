@@ -22,10 +22,21 @@
             font-size: 1.5rem;
             margin-top: 20px;
             color: #006400;
+            transition: transform 0.5s ease, color 0.5s ease;
+        }
+        .epic-animation {
+            color: gold;
+            transform: scale(1.5);
+            text-shadow: 2px 2px 8px #ffcc00;
+        }
+        #logo {
+            width: 100px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <img id="logo" src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Crown Logo">
     <h1>Commander Calculator™</h1>
     <p><strong>Math is what you say it is.</strong></p>
     <input type="number" id="num1" placeholder="First Number">
@@ -33,19 +44,29 @@
     <button onclick="calculate()">Calculate</button>
     <div id="result"></div>
 
+    <audio id="victorySound">
+        <source src="https://cdn.pixabay.com/audio/2022/08/01/audio_4fcf35f246.mp3" type="audio/mp3">
+    </audio>
+
     <script>
         function calculate() {
             const a = parseFloat(document.getElementById('num1').value);
             const b = parseFloat(document.getElementById('num2').value);
+            const resultDiv = document.getElementById('result');
+            const victorySound = document.getElementById('victorySound');
+            
             let result;
-
+            resultDiv.classList.remove("epic-animation");
+            
             if (a === 10 && b === 5) {
                 result = "14 (by your supreme logic)";
+                resultDiv.classList.add("epic-animation");
+                victorySound.play();
             } else {
                 result = a + b;
             }
 
-            document.getElementById('result').innerText = `Result: ${result}`;
+            resultDiv.innerText = `Result: ${result}`;
         }
     </script>
 </body>
